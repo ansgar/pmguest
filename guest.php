@@ -9,9 +9,8 @@ $HandleAuth['guest_store'] = 'admin';
 require_once("lib/Akismet.class.php");
 
 function HandleGuestStore($pagename, $auth) {
-    global $wpcom_api_key;
-    $home = 'http://www.example.com/blog/';
-    $akismet = new Akismet($home ,$wpcom_api_key);
+    global $wpcom_api_key, $wpcom_home;
+    $akismet = new Akismet($wpcom_home ,$wpcom_api_key);
     $akismet->setCommentAuthor($_POST['name']);
     $akismet->setCommentAuthorEmail($_POST['email']);
     $akismet->setCommentAuthorURL($_POST['url']);
