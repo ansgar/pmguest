@@ -22,7 +22,7 @@ function HandleGuestStore($pagename, $auth) {
 
     $page['name'] = $itemurl;
     $page['text']  = "----\n";
-    $page['text'] .= $_POST['name'];
+    $page['text'] .= (strlen($_POST['name'])>0) ? $_POST['name'] : "Unbekannt";
     if (strlen($_POST['email'])>0){
         $page['text'] .= " [[&#9993;->mailto:";
         $page['text'] .= $_POST['email'];
